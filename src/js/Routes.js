@@ -1,7 +1,7 @@
-import { Routes, Route, Link ,BrowserRouter} from 'react-router-dom';
-import React from 'react'
-import Home from '../js/pages/home'
-import About from '../js/pages/about'
+import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import Home from '../js/pages/home';
+import About from '../js/pages/about';
 
 export default function RouterFile() {
   return (
@@ -12,10 +12,11 @@ export default function RouterFile() {
           <Link to="/about">About</Link>
         </div>
         <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/about' element={<About/>}/>
+          {/* Set the index route for the root path */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }

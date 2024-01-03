@@ -108,7 +108,7 @@ module.exports = {
 "watch": "webpack --config webpack.common.js --watch"
 ```
 
-### connect `main` and `render` in `preload.js`
+### connect `main` and `render` in `preload.js` works as a bridge
 ```js
 const { ipcRenderer , contextBridge} = require('electron')
 
