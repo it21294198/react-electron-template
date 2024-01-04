@@ -128,3 +128,5 @@ contextBridge.exposeInIsolatedWorld('electron',{
 ```
 npm i --save-dev electron-reload
 ```
+
+[Packaging is done here](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging)
