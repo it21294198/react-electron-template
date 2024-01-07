@@ -119,7 +119,7 @@ contextBridge.exposeInIsolatedWorld('electron',{
             ipcRenderer.send('notify',message)
         }
     },
-    filaApi:{
+    anyApi:{
         
     }
 })
@@ -130,3 +130,7 @@ npm i --save-dev electron-reload
 ```
 
 [Packaging is done here](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging)
+
+```bash
+npm run package
+```

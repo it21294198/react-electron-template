@@ -1,6 +1,20 @@
 import React from "react";
-import ReactDOM from 'react-dom'
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import './index.css'
+import "./index.css";
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+const root = document.getElementById("root");
+
+const app = (
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// Check if the createRoot API is available (React 18+)
+if (createRoot) {
+  const rootContainer = createRoot(root);
+  rootContainer.render(app);
+} else {
+  ReactDOM.render(app, root);
+}
