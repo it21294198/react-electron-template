@@ -1,3 +1,13 @@
+### About Electron 
+[`Read More`](https://www.electronjs.org/)
+[`Watch Here`](https://youtu.be/m3OjWNFREJo?si=cWG-dTsemKKEQLwL)
+
+This template is a bare minimum setup for an electron project with the React framework
+
+1. First webpack will bundle the React project which is in the side `src` folder
+2. Then the bundled `.js` file will be put inside of the `index.html` file. Electron js will take care of the rest of the process then.
+### Template creation process
+
 1. First install dependencies: `npm install`
 2. In one terminal window run: `npm run watch` to compile react code
 3. In other one run: `npm start` to start Electron app
@@ -34,7 +44,7 @@ created `main.js` and `index.html` files rename `index.js` to `main.js` in `pack
     <div id="root">
     </div>    
     <!-- <script src="./src/js/index.js"></script> -->
-    <!-- following is react to webpack config -->
+    <!-- following is JS buddle after ReactJS to webpack config -->
     <script src="./build/js/app.js"></script>
 </body>
 </html>
@@ -109,6 +119,9 @@ module.exports = {
 ```
 
 ### connect `main` and `render` in `preload.js` works as a bridge
+[`Read More about IPC setup`](https://www.electronjs.org/docs/latest/tutorial/ipc)
+
+[`Read More about IPC methods`](https://www.electronjs.org/docs/latest/api/ipc-main)
 ```js
 const { ipcRenderer , contextBridge} = require('electron')
 
@@ -118,6 +131,23 @@ contextBridge.exposeInIsolatedWorld('electron',{
             console.log('Message inside preload.js',message)
             ipcRenderer.send('notify',message)
         }
+    },
+    ipc: {
+    invoke(method, args) {
+      return ipcRenderer.invoke(method, args);
+    },
+    send(channel, data) {
+      ipcRenderer.send(channel, data);
+    },
+    once: (eventName, callback) => {
+      let handled = false;
+      ipcRenderer.once(eventName, (event, ...args) => {
+        if (!handled) {
+          handled = true;
+          callback(event, ...args);
+          }
+        });
+      },
     },
     anyApi:{
         
@@ -146,7 +176,7 @@ The `start:dev` script uses npm-run-all to run both `watch` and `start` concurre
 npm run start:dev
 ```
 
-[Packaging is done here](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging)
+[`Read More about Packaging for build`](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging)
 
 ```bash
 npm run package
