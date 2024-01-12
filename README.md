@@ -125,23 +125,24 @@ contextBridge.exposeInIsolatedWorld('electron',{
 })
 ```
 
-```
+Add this if needed
+```bash
 npm i --save-dev electron-reload
 ```
 
 This will start both the watch script for webpack and electron concurrently, along with starting your Electron app using electron-forge.
 [Read More](https://www.npmjs.com/package/npm-run-all)
-```
+```bash
 npm install npm-run-all --save-dev
 ```
 
 Add this to `package.json`
-```
+```json
 "start:dev": "npm-run-all --parallel watch start",
 ```
 
 The `start:dev` script uses npm-run-all to run both `watch` and `start` concurrently.
-```
+```bash
 npm run start:dev
 ```
 
@@ -151,7 +152,7 @@ npm run start:dev
 npm run package
 ```
 
-Go to the following file to the build project(`.exe` for windows)
-```
+Go to the following file for the build project after ran the above command (`.exe` for windows)
+```bash
 react-electron-template\out\react-electron-template-win32-x64\react-electron-template.exe
 ```
