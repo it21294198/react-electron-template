@@ -129,6 +129,22 @@ contextBridge.exposeInIsolatedWorld('electron',{
 npm i --save-dev electron-reload
 ```
 
+This will start both the watch script for webpack and electron concurrently, along with starting your Electron app using electron-forge.
+[Read More](https://www.npmjs.com/package/npm-run-all)
+```
+npm install npm-run-all --save-dev
+```
+
+Add this to `package.json`
+```
+"start:dev": "npm-run-all --parallel watch start",
+```
+
+The `start:dev` script uses npm-run-all to run both `watch` and `start` concurrently.
+```
+npm run start:dev
+```
+
 [Packaging is done here](https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging)
 
 ```bash
