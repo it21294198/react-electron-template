@@ -150,3 +150,8 @@ npm run start:dev
 ```bash
 npm run package
 ```
+
+Go to the following file to the build project(`.exe` for windows)
+```
+react-electron-template\out\react-electron-template-win32-x64\react-electron-template.exe
+```
